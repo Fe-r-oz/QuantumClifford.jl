@@ -5,7 +5,7 @@ Implemented as a package extension with Oscar. Check the [QuantumClifford docume
 function twobga_from_fp_group(args...)
     ext = Base.get_extension(QuantumClifford, :QuantumCliffordOscarExt)
     if isnothing(ext)
-        throw("The `twobga_from_fp_group` depends on the package `Oscar` but you have not installed or imported it yet. Immediately after you import `Oscar`, the `LiftedCode` will be available.")
+        throw("The `twobga_from_fp_group` depends on the package `Oscar` but you have not installed or imported it yet. Immediately after you import `Oscar`, the `twobga_from_fp_group` will be available.")
     end
     return ext.twobga_from_fp_group(args...)
 end
