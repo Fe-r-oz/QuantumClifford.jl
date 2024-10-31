@@ -10,6 +10,7 @@ import Oscar: free_group, small_group_identification, describe, order, FPGroupEl
 
 import QuantumClifford.ECC: two_block_group_algebra_codes
 
+include("types.jl")
 include("group_presentation.jl")
 
 end # module

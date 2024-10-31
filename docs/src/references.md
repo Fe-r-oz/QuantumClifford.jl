@@ -41,6 +41,7 @@ For quantum code construction routines:
 - [campbell2012magic](@cite)
 - [anderson2014fault](@cite)
 - [lin2024quantum](@cite)
+- [wang2023abelian](@cite)
 
 For classical code construction routines:
 - [muller1954application](@cite)
