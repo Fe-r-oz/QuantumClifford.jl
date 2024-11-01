@@ -64,13 +64,13 @@ julia> describe(G), small_group_identification(G)
 Cyclic groups with specific group presentations, given by `Cₘ = ⟨x, s | xᵐ = s² = xsx⁻¹s⁻¹ = 1⟩`,
 where the order is `2m`, are supported.
 
-To construct a group algebra for a cyclic group, specify the group presentation `⟨S | R⟩`, using
+To construct the group algebra for a cyclic group, specify the group presentation `⟨S | R⟩`, using
 its generators `S` and defining relations `R`.
 
 # Example
 
 The [[56, 28, 2]] abelian 2BGA code from Appendix C, Table II in [lin2024quantum](@cite) is constructed using
-the cyclic group `C₂₈`.
+the cyclic group `C₂₈ = C₁₄ × C₂`.
 
 ```jldoctest finitegrp
 julia> m = 14;
@@ -106,13 +106,13 @@ julia> describe(G), small_group_identification(G)
 Dihedral groups with specific group presentations, given by `Dₘ = ⟨r, s | rᵐ = s² = (rs)² = 1⟩`,
 where the order is `2m`, are supported.
 
-To construct a group algebra for a dihedral groups, specify the group presentation `⟨S | R⟩`
+To construct the group algebra for a dihedral group, specify the group presentation `⟨S | R⟩`
 using its generators `S` and defining relations `R`.
 
 # Example
 
 The [[24, 8, 3]] 2BGA code from Appendix C, Table III in [lin2024quantum](@cite) is constructed
-using the dihedral group `D₆`.
+using the dihedral group `D₆ = C₆ ⋉ C₂`.
 
 ```jldoctest finitegrp
 julia> m = 6;

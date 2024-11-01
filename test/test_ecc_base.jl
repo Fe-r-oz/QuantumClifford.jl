@@ -5,8 +5,8 @@ using InteractiveUtils
 
 import Nemo: GF
 import LinearAlgebra
-import Hecke: group_algebra, abelian_group, gens, quo, one
-import Oscar: free_group
+import Hecke: group_algebra, abelian_group, gens, quo, one, direct_product
+import Oscar: free_group, cyclic_group
 
 # generate instances of all implemented codes to make sure nothing skips being checked
 
@@ -97,7 +97,30 @@ a = [one(G), x^6]
 b = [one(G), s * x^7, s * x^4, x^6, s * x^5, s * x^2]
 tb22 = twobga_from_fp_group(a, b, GA)
 
-test_twobga_codes = [t1b1, t1b3, tb21, tb22]
+# Examples of Abelian 2BGA codes constructed from the Direct Product of two cyclic groups, denoted as `C₂ₘ = Cₘ × C₂`.
+# [[56, 8, 7]] 2BGA taken from Appendix C, Table II of [lin2024quantum](@cite)
+m = 14; n = 2
+C₁₄ = cyclic_group(m)
+C₂ = cyclic_group(n)
+G = direct_product(C₁₄, C₂)
+GA = group_algebra(GF(2), G)
+x, s = gens(GA)[1], gens(GA)[3]
+a = [one(GA), x^8]
+b = [one(GA), x^7, s, x^8, x^9, s * x^4]
+dprod1 = twobga_from_direct_product(a, b, GA)
+
+# [[48, 24, 2]] 2BGA taken from Appendix C, Table II of [lin2024quantum](@cite)
+m = 12; n = 2
+C₁₂ = cyclic_group(m)
+C₂ = cyclic_group(n)
+G = direct_product(C₁₂, C₂)
+GA = group_algebra(GF(2), G)
+x, s = gens(GA)[1], gens(GA)[4]
+a = [one(GA), s * x^6]
+b = [one(GA), x^3, s * x^6, x^4, s * x^9, s * x^10]
+dprod2 = twobga_from_direct_product(a, b, GA)
+
+test_twobga_codes = [t1b1, t1b3, tb21, tb22, dprod1, dprod2]
 
 const code_instance_args = Dict(
     :Toric => [(3,3), (4,4), (3,6), (4,3), (5,5)],

@@ -23,7 +23,7 @@ export parity_checks, parity_checks_x, parity_checks_z, iscss,
     Toric, Gottesman, Surface, Concat, CircuitCode, QuantumReedMuller,
     LPCode, two_block_group_algebra_codes, generalized_bicycle_codes, bicycle_codes,
     random_brickwork_circuit_code, random_all_to_all_circuit_code,
-    twobga_from_fp_group,
+    twobga_from_fp_group, twobga_from_direct_product,
     evaluate_decoder,
     CommutationCheckECCSetup, NaiveSyndromeECCSetup, ShorSyndromeECCSetup,
     TableDecoder,
@@ -387,6 +387,9 @@ include("codes/classical/lifted.jl")
 include("codes/lifted_product.jl")
 
 # group presentation
-include("codes/group_presentation.jl")
+include("codes/twobga_ext/group_presentation.jl")
+
+# direct product
+include("codes/twobga_ext/direct_product.jl")
 
 end #module
