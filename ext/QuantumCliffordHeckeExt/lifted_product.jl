@@ -331,3 +331,22 @@ function haah_cubic_codes(a_shifts::Array{Int}, b_shifts::Array{Int}, l::Int)
     b = sum(GA[n%dim(GA)+1] for n in b_shifts)
     two_block_group_algebra_codes(a, b)
 end
+
+"""
+The `[[2L², 2, L]]` Toric code is defined as \$\\text{LP}(1 + x, 1 + y)\$ where
+\$\\text{LP}\$ is the lifted product code, and `x`, `y`, are elements of the ring
+\$R = \\mathbb{F}_2[x, y] / (x^L - 1, y^L - 1)\$. Here \$\\mathbb{F}_2\$ is
+the finite field of order `2` and `L` is the lattice size. The ring \$R\$ is
+the group algebra \$\\mathbb{F}_qG\$ of a finite group `G`, where \$G = (C_L)^2\$
+and \$C_L\$ is the cyclic group of order `L`. This method of the toric code
+construction is outlined in Appendix B of [panteleev2022asymptotically](@cite).
+
+See also: [`bicycle_codes`](@ref), [`generalized_bicycle_codes`](@ref), [`two_block_group_algebra_codes`](@ref), [`haah_cubic_codes`](@ref).
+"""
+function toric_codes(l::Int)
+    GA = group_algebra(GF(2), abelian_group([l,l]))
+    x, y = gens(GA)
+    c = [1 + x;;]
+    d = [1 + y;;]
+    LPCode(c,d)
+end
