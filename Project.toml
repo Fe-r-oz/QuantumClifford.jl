@@ -43,7 +43,7 @@ QuantumCliffordQuantikzExt = "Quantikz"
 [compat]
 CUDA = "4.4.0, 5"
 Combinatorics = "1.0"
-DataStructures = "0.18"
+DataStructures = "0.18, 0.19"
 DocStringExtensions = "0.9"
 Graphs = "1.9"
 HostCPUFeatures = "0.1.6"
