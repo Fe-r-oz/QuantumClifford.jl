@@ -14,7 +14,8 @@
 
     @test_throws ArgumentError BCH(2, 2)
     @test_throws ArgumentError BCH(-2, 2)
-    @test_throws ArgumentError BCH(2, -3)
+    @test_throws ArgumentError BCH(3, -3)
+    @test_throws ArgumentError BCH(3, 0)
     @test_throws ArgumentError BCH(3, 3)
     @test_throws ArgumentError BCH(3, 4)
     @test_throws ArgumentError BCH(4, 4)
