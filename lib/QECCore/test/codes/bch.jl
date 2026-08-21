@@ -1,10 +1,7 @@
 @testitem "ECC BCH" begin
     using LinearAlgebra
-    using QECCore 
-    using QuantumClifford.ECC
-    using Nemo: ZZ, residue_ring, matrix, finite_field, GF, minpoly, coeff, lcm, FqPolyRingElem, FqFieldElem, is_zero, degree, defining_polynomial, is_irreducible
-
-    using QECCore: code_k, code_n, distance, rate, parity_matrix, BCH, generator_polynomial
+    using Nemo: matrix, finite_field, GF, minpoly, degree, defining_polynomial, is_irreducible
+    using QECCore: BCH, code_k, generator_polynomial, parity_matrix
 
     # To prove that t-bit error correcting BCH code indeed has minimum distance
     # of at least 2 * t + 1, it is shown that no 2 * t or fewer columns of its
@@ -28,6 +25,9 @@
     end
 
     @testset "Testing properties of BCH codes" begin
+        @test BCH isa DataType
+        @test BCH(3, 1) isa BCH
+
         m_cases = [3, 4, 5, 6, 7, 8, 9, 10]
         for m in m_cases
             n = 2 ^ m - 1

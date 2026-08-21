@@ -1,6 +1,12 @@
 @testitem "ECC throws" tags=[:ecc, :ecc_base] begin
 
+    import QECCore
+    import QuantumClifford
     using QuantumClifford.ECC: ReedMuller, BCH, RecursiveReedMuller, Golay, Triangular488, Triangular666, Hamming
+
+    @test QuantumClifford.ECC.BCH === QECCore.BCH
+    @test QuantumClifford.ECC.AbstractPolynomialCode === QECCore.AbstractPolynomialCode
+    @test BCH(3, 1) isa BCH
 
     @test_throws ArgumentError ReedMuller(-1, 3)
     @test_throws ArgumentError ReedMuller(1, 0)
